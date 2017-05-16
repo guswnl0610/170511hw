@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("다이어리");
         init();
         //퍼미션 체크
         checkpermission();
@@ -184,6 +185,15 @@ public class MainActivity extends AppCompatActivity
                 setfilename();
                 if(btnsave.getText().toString().equals("수정")) //아이템클릭했을때,이름같은거 불러왔을때 수정으로 바꿔줘야함
                 {
+                    if(titlelist.contains(date))
+                    {
+                        AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+                        dlg.setTitle("같은 날짜에 등록된 일기가 이미 존재합니다." +
+                                "날짜를 수정하십시오")
+                                .setPositiveButton("확인",null)
+                                .show();
+                        return;
+                    }
                     remove(getExternalPath() + "diary/" + selectedtitle + ".txt"); //선택했던 이름의 파일 삭제
                     write(getExternalPath() + "diary/" + date + ".txt", editText.getText().toString());
 
