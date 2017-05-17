@@ -109,16 +109,6 @@ public class MainActivity extends AppCompatActivity
         editText = (EditText)findViewById(R.id.et);
         tvcount = (TextView)findViewById(R.id.tvCount);
 
-        //데이트픽커
-//        date = datePicker.getYear() +"-"+(datePicker.getMonth()+1)+"-"+datePicker.getDayOfMonth()+".memo";
-//        datePicker.init(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
-//            @Override
-//            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//                date = year+"-"+ (monthOfYear+1) +"-"+dayOfMonth+".memo";
-//            }
-//        });
-
-
         //어댑터 달기
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,titlelist);
         listView.setAdapter(adapter);
@@ -127,16 +117,14 @@ public class MainActivity extends AppCompatActivity
         String path = getExternalPath();
         File file = new File(path + "diary");
         file.mkdir();
-        String mkdirerrormsg = "디렉토리 생성";
-        if(file.isDirectory() == false)
-        {
-            mkdirerrormsg = "디렉토리 생성 오류";
-        }
-        Toast.makeText(this,mkdirerrormsg,Toast.LENGTH_SHORT).show();
+//        String mkdirerrormsg = "디렉토리 생성";
+//        if(file.isDirectory() == false)
+//        {
+//            mkdirerrormsg = "디렉토리 생성 오류";
+//        }
+//        Toast.makeText(this,mkdirerrormsg,Toast.LENGTH_SHORT).show();
 
         filelist();
-
-
     }
 
     public void setfilename()
@@ -261,7 +249,7 @@ public class MainActivity extends AppCompatActivity
         {
             sdPath = getFilesDir() + "";
         }
-        Toast.makeText(getApplicationContext(),sdPath,Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),sdPath,Toast.LENGTH_SHORT).show();
         return sdPath;
     }
 
@@ -271,8 +259,8 @@ public class MainActivity extends AppCompatActivity
         int permissioninfo = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE);
         if(permissioninfo == PackageManager.PERMISSION_GRANTED){
-            Toast.makeText(this,
-                    "SDCard 쓰기 권한 있음",Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,
+//                    "SDCard 쓰기 권한 있음",Toast.LENGTH_SHORT).show();
         }
         else {
 
